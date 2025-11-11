@@ -1,77 +1,179 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Graphical Process Designer · Case Study</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Tyron Vaz – UX / Product Designer" />
+    <title>GPD · Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
-        theme: {}
+        theme: {
+          extend: {
+            colors: {
+              brand: '#1E2A38',
+              textcol: '#1B1B1F',
+              graybg: '#F5F7FA'
+            }
+          }
+        }
       }
     </script>
     <style>
-      :root{color-scheme: light dark;}
+      :root { --brand: #1E2A38; --gray-bg: #F5F7FA; --text: #1B1B1F; color-scheme: light dark; }
+      html, body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+      .container-12 { max-width: 112rem; margin-inline: auto; padding-inline: 1.5rem; }
+      .card { border-radius: 1rem; border: 1px solid rgba(0,0,0,.08); background: white; }
+      .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+      .focus-ring:focus { outline: 3px solid var(--brand); outline-offset: 2px; }
+      .soft-img { box-shadow: 0 10px 30px rgba(0,0,0,.12); border-radius: 0.75rem; }
+      .btn { border: 1px solid rgba(0,0,0,.15); padding: .6rem 1rem; border-radius: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+      .btn:hover { background: rgba(0,0,0,.04); }
+      .btn-primary { background: var(--brand); color: white; border-color: transparent; }
+      .btn-primary:hover { filter: brightness(1.05); }
+      .tag { font-size: .75rem; padding: .25rem .5rem; border-radius: .5rem; border: 1px solid rgba(0,0,0,.15);}
+      .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+      .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; background:#fff; color:#000; padding:.5rem 1rem; border-radius:.5rem; z-index:1000; }
+      .dark body { background: #0B0B0C; color: #EDEDEF; }
+      .dark .card { background: #111114; border-color: rgba(255,255,255,.08); }
+      .dark .btn { border-color: rgba(255,255,255,.2); }
+      .dark .btn:hover { background: rgba(255,255,255,.08); }
     </style>
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-black dark:bg-zinc-950 dark:text-zinc-100">
-    
-    <header class="border-b bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="flex items-center justify-between h-16">
-          <a href="index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
-            <span class="text-foreground font-medium">Tyron Vaz</span>
-          </a>
-          <div class="flex items-center gap-6">
-            <a href="index.html" class="text-sm transition-colors hover:text-foreground text-muted-foreground">Work</a>
-            <a href="gallery.html" class="text-sm transition-colors hover:text-foreground text-muted-foreground">Gallery</a>
-            <button id="themeToggle" class="text-sm px-3 py-1 rounded-md border hover:bg-accent">Toggle theme</button>
-          </div>
+
+  <body class="bg-white text-textcol dark:bg-[#0B0B0C] dark:text-[#EDEDEF]">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="sticky top-0 z-50 border-b border-black/10 bg-white/75 backdrop-blur dark:bg-[#0B0B0C]/75">
+      <div class="container-12">
+        <div class="h-16 flex items-center justify-between">
+          <a href="index.html" class="font-medium tracking-tight focus-ring">Tyron Vaz</a>
+          <nav class="flex items-center gap-6" aria-label="Primary">
+            <a class="text-sm text-textcol/80 hover:text-textcol" href="index.html">Overview</a>
+            <div class="relative">
+              <button id="csMenuBtn" class="text-sm text-textcol btn" aria-haspopup="true" aria-expanded="false" aria-controls="csMenu">Case Studies</button>
+              <div id="csMenu" class="absolute right-0 mt-2 w-56 rounded-xl border border-black/10 bg-white shadow-md hidden dark:bg-[#111114]" role="menu" aria-label="Case Studies">
+                <a role="menuitem" class="block px-4 py-2 hover:bg-black/5" href="kanban.html">Kanban Workflow</a>
+                <a role="menuitem" class="block px-4 py-2 hover:bg-black/5" href="gpd.html">Graphical Process Designer</a>
+                <a role="menuitem" class="block px-4 py-2 hover:bg-black/5" href="gallery.html">Other Projects & Explorations</a>
+              </div>
+            </div>
+            <a class="text-sm text-textcol/80 hover:text-textcol" href="about.html">About</a>
+            <a class="text-sm text-textcol/80 hover:text-textcol" href="contact.html">Contact</a>
+            <button id="themeToggle" class="text-sm btn" aria-pressed="false" aria-label="Toggle dark mode">Toggle theme</button>
+          </nav>
         </div>
       </div>
     </header>
-    
-    <main class="flex-1">
-      
-<section class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-12">
-  <a href="index.html" class="inline-flex items-center text-sm underline">← Back to Home</a>
-  <h1 class="mt-4 text-3xl font-semibold text-foreground">Graphical Process Designer (GPD)</h1>
-  <p class="text-xl text-muted-foreground max-w-3xl mt-2">Designing the heartbeat of the next‑gen ITSM experience</p>
-</section>
+    <script>
+      const toggleTheme = () => {
+        const doc = document.documentElement;
+        const isDark = doc.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        document.getElementById('themeToggle').setAttribute('aria-pressed', isDark);
+      };
+      const toggleMenu = () => {
+        const btn = document.getElementById('csMenuBtn');
+        const menu = document.getElementById('csMenu');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('hidden');
+      };
+      window.addEventListener('DOMContentLoaded', () => {
+        if(localStorage.getItem('theme')==='dark') { document.documentElement.classList.add('dark'); document.getElementById('themeToggle').setAttribute('aria-pressed', true); }
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        document.getElementById('csMenuBtn').addEventListener('click', toggleMenu);
+        document.addEventListener('click', (e)=>{
+          const menu = document.getElementById('csMenu');
+          const btn = document.getElementById('csMenuBtn');
+          if(!menu.contains(e.target) && !btn.contains(e.target)){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+        });
+      });
+    </script>
 
-<section class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-12 space-y-8">
-  <div class="aspect-video rounded-lg overflow-hidden shadow">
-    <img src="https://images.unsplash.com/photo-16661486701?h=1080&w=1920&auto=format&fit=crop" alt="Process workflow architecture" class="w-full h-full object-cover" />
-  </div>
-  <div class="prose dark:prose-invert max-w-none">
-    <h2>Highlights</h2>
-    <ul>
-      <li>Visual orchestration with clear node states</li>
-      <li>Keyboard‑first interactions for expert users</li>
-      <li>Consistent tokens and spacing from the design system</li>
-    </ul>
-  </div>
-</section>
+  <main id="main">
+    <section class="container-12 pt-16 pb-10">
+      <p><a class="underline" href="index.html">← Back to Overview</a></p>
+      <div class="soft-img overflow-hidden bg-[var(--gray-bg)]/60 p-10 text-center">
+        <h1 class="text-3xl md:text-5xl font-semibold">Graphical Process Designer (GPD)</h1>
+        <p class="mt-2 text-lg opacity-80">Legacy to future migration, 4+ years of research</p>
+        <p class="mt-1 text-sm opacity-70">Role: Senior UX Designer · Company: TOPdesk GmbH · Tools: Figma, Miro, BPMN · Status: MVP testing</p>
+      </div>
+    </section>
+    <section class="container-12 py-10">
+      <h2 class="text-2xl font-semibold mb-4">1. The Call to Adventure</h2>
+      <p class="prose max-w-none">TOPdesk’s ITSM platform was fragmented and siloed… GPD: a unified, intuitive way to design and manage processes, anchored in BPMN.</p>
+      <div class="grid md:grid-cols-2 gap-4 mt-4"><img src="https://placehold.co/960x540?text=Hero%20banner" alt="Hero banner" class="soft-img js-zoom"/><img src="https://placehold.co/960x540?text=Header%20diagram" alt="Header diagram" class="soft-img js-zoom"/></div>
+    </section>
+    <section class="container-12 py-10">
+      <h2 class="text-2xl font-semibold mb-4">2. The Challenge</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-4"><h3 class="font-medium">Organizational</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Stakeholder hesitancy</li><li>No clear MVP</li></ul></div>
+        <div class="card p-4"><h3 class="font-medium">Technical</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Legacy monolith</li><li>Greenfield HTML5/SVG</li></ul></div>
+        <div class="card p-4"><h3 class="font-medium">UX</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Accessible canvas</li><li>Simplifying logic</li></ul></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 mt-4"><img src="https://placehold.co/960x540?text=Monolith%20diagram" alt="Monolith diagram" class="soft-img js-zoom"/><img src="https://placehold.co/960x540?text=Stakeholder%20map" alt="Stakeholder map" class="soft-img js-zoom"/></div>
+    </section>
+    <section class="container-12 py-10">
+      <h2 class="text-2xl font-semibold mb-4">3. The Journey</h2>
+      <div class="prose max-w-none"><p><strong>Research:</strong> Affinity maps, workflows, personas, audits → insights: fewer clicks, consistent terms, keyboard nav, automation & AI.</p><p><strong>Design:</strong> Paper → wireframes → MVP; command bar, shortcuts, accessibility-first; manual vs system tasks; SVG links.</p></div>
+      <div class="grid md:grid-cols-2 gap-4 mt-4"><img src="https://placehold.co/960x540?text=Affinity%20map" alt="Affinity map" class="soft-img js-zoom"/><img src="https://placehold.co/960x540?text=Prototype%20evolution" alt="Prototype evolution" class="soft-img js-zoom"/></div>
+    </section>
+    <section class="container-12 py-10">
+      <h2 class="text-2xl font-semibold mb-4">4. The Transformation</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-4"><h3 class="font-medium">MVP Highlights</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>BPMN drag & drop</li><li>Manual & system tasks</li><li>Starter workflows</li><li>API-integrated</li></ul></div>
+        <div class="card p-4"><h3 class="font-medium">What It Solves</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Breaks silos</li><li>Clarifies routing</li><li>Modern interactions</li><li>Foundation for AI</li></ul></div>
+        <div class="card p-4"><h3 class="font-medium">Proud Of</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Accessibility depth</li><li>New paradigm</li><li>Built on research</li></ul></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 mt-4"><img src="https://placehold.co/960x540?text=Before" alt="Before" class="soft-img js-zoom"/><img src="https://placehold.co/960x540?text=After" alt="After" class="soft-img js-zoom"/></div>
+    </section>
+    <section class="container-12 py-10">
+      <h2 class="text-2xl font-semibold mb-4">5. The Return</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="prose max-w-none"><h3>What I Learned</h3><ul><li>Cross-team collaboration is key</li><li>Side-panel behaviors are complex</li><li>Alignment is as critical as pixels</li></ul><h3 class="mt-6">MVP Trade-offs</h3><ul><li>No multi-language</li><li>No AI yet</li><li>Subset of BPMN</li></ul></div>
+        <div class="card p-4"><h3 class="font-medium mb-2">What’s Next: Design Hub</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Form Designer</li><li>Workflow Designer</li><li>Action/Event Manager</li><li>Service Designer</li><li>SSP Designer</li></ul><h3 class="font-medium mt-4">AI & Analytics</h3><ul class="list-disc pl-6 text-sm opacity-90"><li>Auto-suggest steps</li><li>Bottleneck analytics</li><li>NLP authoring</li><li>Smart validation</li></ul></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 mt-4"><img src="https://placehold.co/960x540?text=Design%20Hub%20cards" alt="Design Hub cards" class="soft-img js-zoom"/><img src="https://placehold.co/960x540?text=AI%20&%20Analytics" alt="AI & Analytics" class="soft-img js-zoom"/></div>
+      <p class="mt-8"><a class="btn" href="index.html">Back to Overview</a></p>
+    </section>
+  </main>
 
-    </main>
-    
-    <footer class="border-t mt-16">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 text-sm text-muted-foreground">
-        © <span id="year"></span> Tyron Vaz — Portfolio
-        · <a class="underline hover:text-foreground" href="attributions.html">Attributions</a>
+<script>
+  const mkLightbox = () => {
+    const overlay = document.createElement('div');
+    overlay.id = 'lightbox';
+    overlay.className = 'fixed inset-0 z-[100] bg-black/70 hidden items-center justify-center p-4';
+    overlay.innerHTML = '<div role="dialog" aria-modal="true"><img id="lightbox-img" class="max-h-[90vh] max-w-[90vw] rounded" alt="Expanded image"/></div>';
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', ()=> overlay.classList.add('hidden'));
+    return overlay;
+  };
+  const overlay = mkLightbox();
+  document.addEventListener('click', (e)=>{
+    const t = e.target;
+    if(t.classList && t.classList.contains('js-zoom')){
+      const img = document.getElementById('lightbox-img');
+      img.src = t.getAttribute('src');
+      overlay.classList.remove('hidden');
+    }
+  });
+</script>
+
+    <footer class="mt-24 border-t border-black/10">
+      <div class="container-12 py-8 grid gap-4 md:flex md:items-center md:justify-between">
+        <div class="text-sm opacity-80">© 2025 Tyron Vaz</div>
+        <div class="flex gap-4 text-sm">
+          <a class="underline hover:no-underline" href="https://www.linkedin.com/in/tyron123/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="underline hover:no-underline" href="https://www.behance.net/tyron123/" target="_blank" rel="noopener">Behance</a>
+          <a class="underline hover:no-underline" href="mailto:tyron.vaz@gmail.com">Email</a>
+          <a class="underline hover:no-underline" href="https://medium.com/@tyron123" target="_blank" rel="noopener">Blog</a>
+          <a class="btn btn-primary" href="https://drive.google.com/file/d/1AWr2HnycVeeC_N_vxYVd1TCmuO-fCzOn/view?usp=drive_link" target="_blank" rel="noopener">Résumé</a>
+        </div>
       </div>
     </footer>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-      const btn = document.getElementById('themeToggle');
-      const doc = document.documentElement;
-      btn.addEventListener('click', ()=>{
-        doc.classList.toggle('dark');
-        localStorage.setItem('theme', doc.classList.contains('dark') ? 'dark' : 'light');
-      });
-      if(localStorage.getItem('theme')==='dark'){ doc.classList.add('dark'); }
-    </script>
-    
   </body>
 </html>
