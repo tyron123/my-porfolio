@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attributions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {}
+      }
+    </script>
+    <style>
+      :root{color-scheme: light dark;}
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-black dark:bg-zinc-950 dark:text-zinc-100">
+    
+    <header class="border-b bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="flex items-center justify-between h-16">
+          <a href="index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+            <span class="text-foreground font-medium">Tyron Vaz</span>
+          </a>
+          <div class="flex items-center gap-6">
+            <a href="index.html" class="text-sm transition-colors hover:text-foreground text-muted-foreground">Work</a>
+            <a href="gallery.html" class="text-sm transition-colors hover:text-foreground text-muted-foreground">Gallery</a>
+            <button id="themeToggle" class="text-sm px-3 py-1 rounded-md border hover:bg-accent">Toggle theme</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <main class="flex-1">
+      <section class='max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-12 prose dark:prose-invert'><h1>Attributions</h1><p>This Figma Make file includes components from [shadcn/ui](https://ui.shadcn.com/) used under [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).</p><p>This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).</p></section>
+    </main>
+    
+    <footer class="border-t mt-16">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 text-sm text-muted-foreground">
+        © <span id="year"></span> Tyron Vaz — Portfolio
+        · <a class="underline hover:text-foreground" href="attributions.html">Attributions</a>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const btn = document.getElementById('themeToggle');
+      const doc = document.documentElement;
+      btn.addEventListener('click', ()=>{
+        doc.classList.toggle('dark');
+        localStorage.setItem('theme', doc.classList.contains('dark') ? 'dark' : 'light');
+      });
+      if(localStorage.getItem('theme')==='dark'){ doc.classList.add('dark'); }
+    </script>
+    
+  </body>
+</html>
