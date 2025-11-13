@@ -203,5 +203,15 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 </a></div>
 </div>
 </footer>
-<script>(function(){var b=document.getElementById('nav-toggle'),n=document.getElementById('primary-nav');if(b&&n){b.addEventListener('click',function(){var h=n.classList.toggle('hidden');b.setAttribute('aria-expanded',(!h).toString());});}})();</script><script src="assets/case-protect.js"></script></body>
+<script>(function(){var b=document.getElementById('nav-toggle'),n=document.getElementById('primary-nav');if(b&&n){b.addEventListener('click',function(){var h=n.classList.toggle('hidden');b.setAttribute('aria-expanded',(!h).toString());});}})();</script><script src="assets/case-protect.js"></script>
+<script src="assets/case-protect.js"></script>
+<script>
+  window.CaseProtect.init({
+    pathScope: ["/kanban.html", "/gpd.html"], // pages to protect
+    promptTitle: "Enter portfolio password",
+    validate: (pw) => pw === "YourPasswordHere", // change this
+    rememberHours: 24 // keeps unlocked for 24h in localStorage
+  });
+</script>
+</body>
 </html>
