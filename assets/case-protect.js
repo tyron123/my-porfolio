@@ -1,43 +1,60 @@
+// Simple password overlay gate — v1
+window.CaseProtect = (() => {
+  const KEY = "case_pass_until_v1";
+  const now = () => Math.floor(Date.now() / 1000);
+  const ok = (until) => until && Number(until) > now();
 
-(function(){
-  const CONFIG = {
-    password: "ty",
-    storageKey: "tvaz_case_access",
-    protectedSlugs: ["kanban", "gpd"]  // filenames or path segments
-  };
-
-  function shouldProtect(path){
-    const p = (path || window.location.pathname).toLowerCase();
-    return CONFIG.protectedSlugs.some(slug => p.includes(slug));
-  }
-
-  function showOverlay(){
-    if(localStorage.getItem(CONFIG.storageKey)==="ok") return;
-    const overlay = document.createElement('div');
-    overlay.className = "fixed inset-0 bg-black/80 z-[200] flex items-center justify-center p-4";
-    overlay.innerHTML = `
-      <div class="card max-w-sm w-full p-6 bg-white dark:bg-[#111114]">
-        <h2 class="text-lg font-medium mb-2">Enter password</h2>
-        <p class="text-sm opacity-80 mb-4">Case studies are protected. Enter the password to view.</p>
-        <form id="pwForm" class="space-y-3">
-          <input id="pwInput" type="password" class="w-full p-3 rounded-lg border" placeholder="Password" aria-label="Password" required />
-          <button class="btn btn-primary w-full" type="submit">Unlock</button>
-          <p id="pwErr" class="text-sm text-red-600 hidden">Incorrect password, try again.</p>
+  function ui(opts) {
+    const wrap = document.createElement("div");
+    wrap.style.cssText = `
+      position:fixed;inset:0;background:rgba(0,0,0,.7);
+      display:grid;place-items:center;z-index:9999;
+      font-family:Inter,system-ui,sans-serif;color:#111;`;
+    wrap.innerHTML = `
+      <div style="background:#fff;padding:2rem 1.5rem;border-radius:1rem;max-width:360px;width:92%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)">
+        <h2 style="margin:0 0 .5rem;font-weight:600">${opts.promptTitle || "Protected"}</h2>
+        <p style="margin:0 0 1rem;opacity:.7">Enter password to view this case study.</p>
+        <form>
+          <input type="password" aria-label="Password" placeholder="Password" style="width:100%;padding:.75rem;border:1px solid #ccc;border-radius:.5rem;font-size:1rem" autofocus/>
+          <button style="margin-top:.75rem;width:100%;padding:.75rem;border-radius:.5rem;background:#1E2A38;color:#fff;border:0;font-weight:500">Continue</button>
         </form>
+        <p id="err" style="color:#c00;display:none;margin-top:.5rem;font-size:.9rem">Wrong password</p>
       </div>`;
-    document.body.appendChild(overlay);
-    const form = overlay.querySelector('#pwForm');
-    const input = overlay.querySelector('#pwInput');
-    const err = overlay.querySelector('#pwErr');
-    form.addEventListener('submit', (e)=>{
+    document.body.appendChild(wrap);
+
+    const form = wrap.querySelector("form");
+    const input = wrap.querySelector("input");
+    const err = wrap.querySelector("#err");
+
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      if(input.value === CONFIG.password){ localStorage.setItem(CONFIG.storageKey, "ok"); overlay.remove(); }
-      else { err.classList.remove('hidden'); input.value=''; input.focus(); }
+      if (opts.validate(input.value)) {
+        const until = now() + Math.max(1, (opts.rememberHours || 12)) * 3600;
+        localStorage.setItem(KEY, String(until));
+        wrap.remove();
+      } else {
+        err.style.display = "block";
+        input.select();
+      }
     });
-    input.focus();
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    if(shouldProtect(window.location.pathname)) showOverlay();
-  });
+  function matchesScope(scope) {
+    if (!scope || !scope.length) return true;
+    const p = location.pathname;
+    return scope.some((s) => p.endsWith(s));
+  }
+
+  function init(opts = {}) {
+    if (!matchesScope(opts.pathScope)) return;
+    try {
+      const until = localStorage.getItem(KEY);
+      if (ok(until)) return;
+      ui(opts);
+    } catch {
+      ui(opts);
+    }
+  }
+
+  return { init };
 })();
