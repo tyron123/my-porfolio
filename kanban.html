@@ -75,7 +75,18 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 .dark .btn[data-state="selected"]{box-shadow:inset 0 0 0 2px #9EC8FF}
 .dark .btn[data-state="selected"]:hover{box-shadow:inset 0 0 0 2px #CFE4FF}
 .dark .btn:focus-visible,.dark nav a:focus-visible{outline-color:#9EC8FF}
-</style></head>
+</style>
+<style>
+  /* Uniform case study images */
+  .soft-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+</style>
+</head>
 <body class="bg-white text-textcol dark:bg-[#0B0B0C] dark:text-[#EDEDEF]">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="sticky top-0 z-50 border-b border-black/10 bg-white/75 backdrop-blur dark:bg-[#0B0B0C]/75">
@@ -172,8 +183,54 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 </ul>
 </div>
 </div>
-</section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🧭 1. The Call to Adventure</h2><p>The Kanban board wasn't broken — but it wasn’t whole either. Initially, the project aimed to integrate a long-requested Operations Management (OM) module alongside the existing Incidents and Changes already displayed. Users were vocal: they wanted all their tasks in one unified view.</p><p>However, during interviews, we uncovered additional pain points:</p><ul class="list-disc pl-6"><li>Missing filters</li><li>No pagination (only 50 tasks per column visible)</li><li>A clunky setup/editing experience</li><li>Fragmentation due to outdated UI</li></ul><p>At the same time, our design system had matured. It was the perfect moment to rethink the entire Kanban experience, not just plug in OM.</p><div class="grid md:grid-cols-2 gap-4 mt-4"><img alt="Placeholder image 1" class="soft-img" src="https://placehold.co/1600x900?text=Image+1"/><img alt="Placeholder image 2" class="soft-img" src="https://placehold.co/1600x900?text=Image+2"/></div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🚧 2. The Challenge</h2><h3 class="font-semibold">⏳ Constraints:</h3><ul class="list-disc pl-6"><li>Time pressure: We didn't know how long the project would stay alive. We needed impact, fast.</li><li>Legacy tech: The architecture severely limited what we could realistically implement.</li><li>Surprise insights: We assumed OM tasks needed to behave identically on the board. They didn’t — users just needed clarity and task mapping, not perfect behavioral parity.</li></ul><p>🧪 Accessibility:
-While not a stated goal, I championed low-hanging improvements — tabbing order, keyboard shortcuts — to plant the seeds of inclusive design.</p><div class="grid md:grid-cols-2 gap-4 mt-4"><img alt="Placeholder image 1" class="soft-img" src="https://placehold.co/1600x900?text=Image+1"/><img alt="Placeholder image 2" class="soft-img" src="https://placehold.co/1600x900?text=Image+2"/></div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🧪 3. The Journey</h2><h3 class="font-semibold">🔍 Research</h3><ul class="list-disc pl-6"><li>Conducted user interviews on current Kanban use and reactions to OM integration</li><li>Reviewed usage data to identify feature gaps</li><li>Tested mid- and high-fidelity prototypes: task setup, closing tasks, filters, pagination</li></ul><h3 class="font-semibold mt-3">💡 Key Insights</h3><ol class="list-decimal pl-6"><li>Filters were more critical than expected — users wanted granular task control.</li><li>Showing more than 50 tasks per column was a top request — but ultimately blocked by backend limits.</li></ol><h3 class="font-semibold mt-3">🔁 Iteration</h3><ul class="list-disc pl-6"><li>Task closure flows</li><li>Adding OM tasks</li><li>Advanced filter placement</li><li>Pagination patterns</li><li>Task setup wizards</li></ul><h3 class="font-semibold mt-3">💬 Feedback</h3><ul class="list-disc pl-6"><li>“It feels intuitive.”</li><li>“Finally, OM doesn’t feel like an afterthought.”</li><li>Accessibility tweaks — like tabbing and shortcuts — were positively received.</li></ul><h3 class="font-semibold mt-3">🧱 Design System Contribution</h3><ul class="list-disc pl-6"><li>A new side panel layout</li><li>Updated Kanban card UI</li><li>A wizard-style stepper for setting up/editing boards</li></ul><div class="grid md:grid-cols-2 gap-4 mt-4"><img alt="Placeholder image 1" class="soft-img" src="https://placehold.co/1600x900?text=Image+1"/><img alt="Placeholder image 2" class="soft-img" src="https://placehold.co/1600x900?text=Image+2"/></div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">✨ 4. The Transformation</h2><h3 class="font-semibold">✅ Key Changes</h3><ul class="list-disc pl-6"><li>Full UI refresh using the design system</li><li>Filter bar for task types (Incidents, Changes, OM)</li><li>Keyboard accessibility enhancements</li><li>Ability to toggle closed tasks</li><li>Seamless OM task integration</li></ul><h3 class="font-semibold mt-3">📈 Outcomes</h3><ul class="list-disc pl-6"><li>⏱ 23% faster task completion (measured via timed task test pre/post-launch)</li><li>🌟 9/10 satisfaction (via feedback widget + optional comments)</li><li>This was not just a redesign — it was a strategic UX overhaul delivered under real-world constraints.</li></ul><div class="grid md:grid-cols-2 gap-4 mt-4"><img alt="Placeholder image 1" class="soft-img" src="https://placehold.co/1600x900?text=Image+1"/><img alt="Placeholder image 2" class="soft-img" src="https://placehold.co/1600x900?text=Image+2"/></div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🎓 5. The Return</h2><h3 class="font-semibold">What I Learned</h3><ul class="list-disc pl-6"><li>Design ≠ intent: You can design something great and still lose it to technical limits. Pagination was our toughest letdown — greenlit at first, then blocked during implementation.</li><li>Prioritization is a team sport: We dropped the setup screen redesign due to time — and while it stings, usage data showed users barely touched it. Pragmatism won.</li><li>Stay ahead, but stay nimble: I worked 2 months ahead of development. This buffer gave me time for exploration, visual polish, and design system contributions.</li></ul><h3 class="font-semibold mt-3">What I’d Improve with More Time</h3><ul class="list-disc pl-6"><li>Full setup wizard redesign</li><li>Advanced filters (multi-level, saved views)</li><li>More robust accessibility options</li><li>True pagination or infinite scroll for dense boards</li></ul><h3 class="font-semibold mt-3">Biggest Victory?</h3><p>Turning a feature request into an opportunity for strategic redesign — and pushing through real constraints to deliver a cleaner, smarter, and more unified Kanban experience.</p><div class="grid md:grid-cols-2 gap-4 mt-4"><img alt="Placeholder image 1" class="soft-img" src="https://placehold.co/1600x900?text=Image+1"/><img alt="Placeholder image 2" class="soft-img" src="https://placehold.co/1600x900?text=Image+2"/></div></section></section>
+</section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🧭 1. The Call to Adventure</h2><p>The Kanban board wasn't broken — but it wasn’t whole either. Initially, the project aimed to integrate a long-requested Operations Management (OM) module alongside the existing Incidents and Changes already displayed. Users were vocal: they wanted all their tasks in one unified view.</p><p>However, during interviews, we uncovered additional pain points:</p><ul class="list-disc pl-6"><li>Missing filters</li><li>No pagination (only 50 tasks per column visible)</li><li>A clunky setup/editing experience</li><li>Fragmentation due to outdated UI</li></ul><p>At the same time, our design system had matured. It was the perfect moment to rethink the entire Kanban experience, not just plug in OM.</p><div class="grid md:grid-cols-2 gap-4 mt-4">
+<img
+    class="soft-img"
+    src="assets/kanban/image1.jpg"
+    alt="Original Kanban Board Design"
+    loading="lazy"/>
+<img
+    class="soft-img"
+    src="assets/kanban/image2.png"
+    alt="An affinity map of the users problems"
+    loading="lazy"/>
+	</div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🚧 2. The Challenge</h2><h3 class="font-semibold">⏳ Constraints:</h3><ul class="list-disc pl-6"><li>Time pressure: We didn't know how long the project would stay alive. We needed impact, fast.</li><li>Legacy tech: The architecture severely limited what we could realistically implement.</li><li>Surprise insights: We assumed OM tasks needed to behave identically on the board. They didn’t — users just needed clarity and task mapping, not perfect behavioral parity.</li></ul><p>🧪 Accessibility:
+While not a stated goal, I championed low-hanging improvements — tabbing order, keyboard shortcuts — to plant the seeds of inclusive design.</p><div class="grid md:grid-cols-2 gap-4 mt-4">
+<img class="soft-img"
+    src="assets/kanban/image3.jpg"
+    alt="An early prototype of the mapping of operational activities on the Kanban Board"
+    loading="lazy"/>
+	<img class="soft-img"
+    src="assets/kanban/image4.jpg"
+    alt="Conceptual mapping of Operational Activities"
+    loading="lazy"/>
+	</div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🧪 3. The Journey</h2><h3 class="font-semibold">🔍 Research</h3><ul class="list-disc pl-6"><li>Conducted user interviews on current Kanban use and reactions to OM integration</li><li>Reviewed usage data to identify feature gaps</li><li>Tested mid- and high-fidelity prototypes: task setup, closing tasks, filters, pagination</li></ul><h3 class="font-semibold mt-3">💡 Key Insights</h3><ol class="list-decimal pl-6"><li>Filters were more critical than expected — users wanted granular task control.</li><li>Showing more than 50 tasks per column was a top request — but ultimately blocked by backend limits.</li></ol><h3 class="font-semibold mt-3">🔁 Iteration</h3><ul class="list-disc pl-6"><li>Task closure flows</li><li>Adding OM tasks</li><li>Advanced filter placement</li><li>Pagination patterns</li><li>Task setup wizards</li></ul><h3 class="font-semibold mt-3">💬 Feedback</h3><ul class="list-disc pl-6"><li>“It feels intuitive.”</li><li>“Finally, OM doesn’t feel like an afterthought.”</li><li>Accessibility tweaks — like tabbing and shortcuts — were positively received.</li></ul><h3 class="font-semibold mt-3">🧱 Design System Contribution</h3><ul class="list-disc pl-6"><li>A new side panel layout</li><li>Updated Kanban card UI</li><li>A wizard-style stepper for setting up/editing boards</li></ul><div class="grid md:grid-cols-2 gap-4 mt-4">
+	<img class="soft-img"
+    src="assets/kanban/image5.jpg"
+    alt="An Early design on the mapping of an operational activity on the kanban board"
+    loading="lazy"/>
+	<img class="soft-img"
+    src="assets/kanban/image6.jpg"
+    alt="An early design on the Kanban board with Filters"
+    loading="lazy"/></div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">✨ 4. The Transformation</h2><h3 class="font-semibold">✅ Key Changes</h3><ul class="list-disc pl-6"><li>Full UI refresh using the design system</li><li>Filter bar for task types (Incidents, Changes, OM)</li><li>Keyboard accessibility enhancements</li><li>Ability to toggle closed tasks</li><li>Seamless OM task integration</li></ul><h3 class="font-semibold mt-3">📈 Outcomes</h3><ul class="list-disc pl-6"><li>⏱ 23% faster task completion (measured via timed task test pre/post-launch)</li><li>🌟 9/10 satisfaction (via feedback widget + optional comments)</li><li>This was not just a redesign — it was a strategic UX overhaul delivered under real-world constraints.</li></ul><div class="grid md:grid-cols-2 gap-4 mt-4">
+	<class="soft-img"
+    src="assets/kanban/image7.jpg"
+    alt="Design system contributions and the new componenets"
+    loading="lazy"/>
+	<img class="soft-img"
+    src="assets/kanban/image8.jpg"
+    alt="Kanban board in the the new Design System language"
+    loading="lazy"/>
+	</div></section><section class="container-12 py-10"><h2 class="text-2xl md:text-3xl font-semibold mb-3">🎓 5. The Return</h2><h3 class="font-semibold">What I Learned</h3><ul class="list-disc pl-6"><li>Design ≠ intent: You can design something great and still lose it to technical limits. Pagination was our toughest letdown — greenlit at first, then blocked during implementation.</li><li>Prioritization is a team sport: We dropped the setup screen redesign due to time — and while it stings, usage data showed users barely touched it. Pragmatism won.</li><li>Stay ahead, but stay nimble: I worked 2 months ahead of development. This buffer gave me time for exploration, visual polish, and design system contributions.</li></ul><h3 class="font-semibold mt-3">What I’d Improve with More Time</h3><ul class="list-disc pl-6"><li>Full setup wizard redesign</li><li>Advanced filters (multi-level, saved views)</li><li>More robust accessibility options</li><li>True pagination or infinite scroll for dense boards</li></ul><h3 class="font-semibold mt-3">Biggest Victory?</h3><p>Turning a feature request into an opportunity for strategic redesign — and pushing through real constraints to deliver a cleaner, smarter, and more unified Kanban experience.</p><div class="grid md:grid-cols-2 gap-4 mt-4">
+	<img class="soft-img"
+    src="assets/kanban/image9.jpg"
+    alt="Improved set up and mapping of a Kanbanboard in the new Design System language"
+    loading="lazy"/>
+	<img class="soft-img"
+    src="assets/kanban/image10.jpg"
+    alt="Pagination of columns to show more than 50 tasks on the Kanban board"
+    loading="lazy"/>
+	</div></section></section>
 </main>
 <script src="assets/case-protect.js"></script>
 <footer class="mt-24 border-t border-black/10">
@@ -196,7 +253,7 @@ While not a stated goal, I championed low-hanging improvements — tabbing order
 <script src="assets/case-protect.js"></script>
 <script>
   window.CaseProtect.init({
-    pathScope: ["/kanban.html", "/gpd.html"], // pages to protect
+    pathScope: ["/kanban.html", "/gpd.html", "/gallery.html"], // pages to protect
     promptTitle: "Enter portfolio password",
     validate: (pw) => pw === "YourPasswordHere", // change this
     rememberHours: 24 // keeps unlocked for 24h in localStorage
