@@ -27,13 +27,14 @@
 <style>
       :root { --brand: #1E2A38; --gray-bg: #F5F7FA; --text: #1B1B1F; color-scheme: light dark; }
       html, body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+      main{min-height: calc(100dvh - 232px);}
       .container-12 { max-width: 112rem; margin-inline: auto; padding-inline: 1.5rem; }
       .card { border-radius: 1rem; border: 1px solid rgba(0,0,0,.08); background: white; }
       .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
       .focus-ring:focus { outline: 3px solid var(--brand); outline-offset: 2px; }
       .soft-img { box-shadow: 0 10px 30px rgba(0,0,0,.12); border-radius: 0.75rem; }
       .btn { border: 1px solid rgba(0,0,0,.15); padding: .7rem 1.1rem; border-radius: .7rem; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; text-align: center; }
-      .btn:hover { background: rgba(0,0,0,.04); }
+      .btn:hover { background: rgba(0,0,0,1); }
       .btn-primary { background: var(--brand); color: white; border-color: transparent; font-weight: 500; }
       .btn-primary:hover { filter: brightness(1.05); }
       .btn-minimal { border: 1px solid rgba(0,0,0,.2); background: transparent; }
@@ -56,7 +57,7 @@
 :root{--brand:#1E2A38;--text:#1B1B1F;--brand-contrast:#0A1520;--brand-200:#243447}
 nav a{border-bottom:2px solid transparent}
 nav a:hover{border-bottom-color:rgba(0,0,0,.25)}
-nav a[aria-current="page"],nav a[data-selected="true"]{border-bottom-color:var(--brand);font-weight:600}
+nav a[aria-current="page"],nav a[data-selected="true"]{border-bottom-color:var(--brand);font-weight:600;padding:21px 0;}
 nav a[aria-current="page"]:hover{border-bottom-color:var(--brand-contrast)}
 nav a:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:4px}
 nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)}
@@ -135,7 +136,7 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 <p class="opacity-80 text-base md:text-lg">Currently, I'm visualizing business requests into accessible, and impactful workflows for next gen ITSM</p>
 </section>
 </main>
-<footer class="mt-24 border-t border-black/10">
+<footer class="border-t border-black/10">
 <div class="container-12 py-8 text-center">
 <div class="text-sm opacity-80">© 2025 Tyron Vaz</div>
 <div class="mt-4 flex items-center justify-center gap-4"><a aria-label="LinkedIn" class="p-2 rounded-md hover:bg-black/5 focus-ring inline-flex items-center" href="https://www.linkedin.com/in/tyron123/" rel="noopener" target="_blank" title="LinkedIn">
