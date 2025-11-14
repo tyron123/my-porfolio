@@ -75,6 +75,43 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 .dark .btn[data-state="selected"]:hover{box-shadow:inset 0 0 0 2px #CFE4FF}
 .dark .btn:focus-visible,.dark nav a:focus-visible{outline-color:#9EC8FF}
 </style>
+<style>
+  /* Uniform case study images */
+  .soft-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+</style>
+<style>
+  /* Only images get the 16:9 box */
+  img.soft-img { width:100%; aspect-ratio:16/9; object-fit:cover; 
+                 border-radius:0.75rem; box-shadow:0 10px 30px rgba(0,0,0,.12); }
+  /* Non-images keep the visual style but no forced ratio */
+  .soft-img:not(img) { aspect-ratio:auto; object-fit:initial; }
+</style>
+<style>
+  /* Smooth grid transition for case study image groups */
+  .case-grid {
+    display: grid;
+    gap: 1rem; /* same as Tailwind gap-4 */
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .case-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .case-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  /* Keeps all grids centered and maxed at a shared width */
+  .case-grid img {
+    width: 100%;
+    border-radius: 0.75rem;
+  }
+</style>
+
 </head>
 <body class="bg-white text-textcol dark:bg-[#0B0B0C] dark:text-[#EDEDEF]">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -192,9 +229,13 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
     <p>TOPdesk’s ITSM platform had a problem: it was fragmented, siloed, and bloated. Each request type — incidents, changes, problems, operational activities — existed in its own isolated module. This complexity resulted in clunky interfaces, inconsistent UX, and difficult cross-team collaboration.</p>
     <p>Internally, it looked like “every module was designed by a different team.” Externally, competitors were surpassing us with modern, integrated tools.</p>
     <p>That’s when the Graphical Process Designer (GPD) was envisioned: a new way for application owners to design, visualize, and manage processes in a unified, intuitive, and future‑ready interface — anchored in BPMN, but flexible enough for the real-world needs of IT, HR, and facilities teams alike.</p>
-    <div class="grid md:grid-cols-2 gap-4 mt-4">
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+1" alt="Placeholder image 1" />
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+2" alt="Placeholder image 2" />
+    <div class="grid md:grid-cols-2 mt-4">
+      <img class="soft-img"Idea dump board with post-its"
+    loading="lazy" />
+      <img class="soft-img"
+    src="assets/gpd/Image12.png"
+    alt="An example operator flow for change request"
+    loading="lazy" />
     </div>
   </section>
 
@@ -217,9 +258,15 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
       <li>Defining complex process elements like gateways, decision trees, and task types required simplifying abstract logic into approachable UI.</li>
     </ul>
     <p class="mt-2">Despite these constraints, we pushed forward with full research commitment and long-term strategy.</p>
-    <div class="grid md:grid-cols-2 gap-4 mt-4">
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+1" alt="Placeholder image 1" />
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+2" alt="Placeholder image 2" />
+    <div class="grid md:grid-cols-2 mt-4">
+      <img class="soft-img"
+    src="assets/gpd/Image21.png"
+    alt="Affinity board insights from all the interviews"
+    loading="lazy" />
+      <img class="soft-img"
+    src="assets/gpd/Image22.png"
+    alt="Onboarding user journey for new employee"
+    loading="lazy" />
     </div>
   </section>
 
@@ -252,9 +299,23 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
       <li>Explored manual vs. system tasks, reusable workflow elements, and visual task-linking via SVG and DOM</li>
     </ul>
     <p>We’re now testing the MVP with users, asking them to build real workflows (e.g., onboarding, password resets) to validate comprehension and ease of use.</p>
-    <div class="grid md:grid-cols-2 gap-4 mt-4">
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+1" alt="Placeholder image 1" />
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+2" alt="Placeholder image 2" />
+    <div class="grid md:grid-cols-4 mt-4">
+      <img class="soft-img"
+    src="assets/gpd/Image31.png"
+    alt="A sample of a Do-Go map for Graphical Process Designer"
+    loading="lazy" />
+      <img class="soft-img"
+    src="assets/gpd/Image32.png"
+    alt="Various wireframes and low fidelidy designs of how a workflow can be integrated into a request"
+    loading="lazy" />
+	<img class="soft-img"
+    src="assets/gpd/Image33.png"
+    alt="Various low fidelidy designs of a wokflow manager"
+    loading="lazy" />
+	<img class="soft-img"
+    src="assets/gpd/Image34.png"
+    alt="Various designs of a wokflow manager can be made accessible"
+    loading="lazy" />
     </div>
   </section>
 
@@ -286,9 +347,23 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
       <li>Inventing a new interaction paradigm within TOPdesk from the ground up</li>
       <li>Building on years of research instead of starting from scratch</li>
     </ul>
-    <div class="grid md:grid-cols-2 gap-4 mt-4">
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+1" alt="Placeholder image 1" />
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+2" alt="Placeholder image 2" />
+    <div class="grid md:grid-cols-4 mt-4">
+      <img class="soft-img"
+    src="assets/gpd/Image40.png"
+    alt="Tabbing order inside a workflow designer"
+    loading="lazy" />
+      <img class="soft-img"
+    src="assets/gpd/Image41.png"
+    alt="First hi-fidelity design of a graphical process designer"
+    loading="lazy" />
+	<img class="soft-img"
+    src="assets/gpd/Image42.png"
+    alt="First hi-fidelity design of a workflow manager"
+    loading="lazy" />
+	<img class="soft-img"
+    src="assets/gpd/Image43.png"
+    alt="What a deatails panel on the right hand side of the wrokflow designer looks like"
+    loading="lazy" />
     </div>
   </section>
 
@@ -324,9 +399,15 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
       <li>Intelligent validation based on previous process runs</li>
     </ul>
     <blockquote class="mt-3 italic opacity-90">"GPD is not just a module. It’s the beating heart of the next-gen TOPdesk."</blockquote>
-    <div class="grid md:grid-cols-2 gap-4 mt-4">
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+1" alt="Placeholder image 1" />
-      <img class="soft-img" src="https://placehold.co/1600x900?text=Image+2" alt="Placeholder image 2" />
+    <div class="grid md:grid-cols-2 mt-4">
+      <img class="soft-img"
+    src="assets/gpd/Image51.png"
+    alt="Strategic vision of what the next generation of an ITSM application can look like"
+    loading="lazy" />
+      <img class="soft-img"
+    src="assets/gpd/Image52.png"
+    alt="A modernized version of a graphical process designer with AI/command box for advanced and power users"
+    loading="lazy" />
     </div>
   </section>
 </main>
@@ -359,7 +440,7 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
 <script src="assets/case-protect.js"></script>
 <script>
   window.CaseProtect.init({
-    pathScope: ["/kanban.html", "/gpd.html"], // pages to protect
+    pathScope: ["/kanban.html", "/gpd.html", "/gallery.html"], // pages to protect
     promptTitle: "Enter portfolio password",
     validate: (pw) => pw === "YourPasswordHere", // change this
     rememberHours: 6 // keeps unlocked for 6h in localStorage

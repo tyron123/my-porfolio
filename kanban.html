@@ -93,6 +93,26 @@ nav a[aria-current="page"]:focus-visible{outline:3px solid var(--brand-contrast)
   /* Non-images keep the visual style but no forced ratio */
   .soft-img:not(img) { aspect-ratio:auto; object-fit:initial; }
 </style>
+<style>
+  /* Smooth grid transition for case study image groups */
+  .case-grid {
+    display: grid;
+    gap: 1rem; /* same as Tailwind gap-4 */
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .case-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .case-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  /* Keeps all grids centered and maxed at a shared width */
+  .case-grid img {
+    width: 100%;
+    border-radius: 0.75rem;
+  }
+</style>
+
 </head>
 <body class="bg-white text-textcol dark:bg-[#0B0B0C] dark:text-[#EDEDEF]">
 <a class="skip-link" href="#main">Skip to content</a>
