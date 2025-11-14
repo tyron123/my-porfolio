@@ -7,9 +7,13 @@ window.CaseProtect = (() => {
   function ui(opts) {
     const wrap = document.createElement("div");
     wrap.style.cssText = `
-      position:fixed;inset:0;background:rgba(0,0,0,.7);
-      display:grid;place-items:center;z-index:9999;
-      font-family:Inter,system-ui,sans-serif;color:#111;`;
+		position:fixed;inset:0;
+		backdrop-filter:blur(8px);
+		-webkit-backdrop-filter:blur(8px);
+		background:rgba(0,0,0,.8);
+		display:grid;place-items:center;z-index:9999;
+		font-family:Inter,system-ui,sans-serif;color:#111;`;
+
     wrap.innerHTML = `
       <div style="background:#fff;padding:2rem 1.5rem;border-radius:1rem;max-width:360px;width:92%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)">
         <h2 style="margin:0 0 .5rem;font-weight:600">${opts.promptTitle || "Protected"}</h2>
